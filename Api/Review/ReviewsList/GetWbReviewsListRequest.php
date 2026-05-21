@@ -107,8 +107,9 @@ final class GetWbReviewsListRequest extends Wildberries
                     $this->logger->critical(
                         sprintf('wildberries-support: Ошибка %s получения списка отзывов', $response->getStatusCode()),
                         [
-                            self::class.':'.__LINE__,
+                            $this->getTokenIdentifier(),
                             $content,
+                            self::class.':'.__LINE__,
                         ]);
 
                     return false;

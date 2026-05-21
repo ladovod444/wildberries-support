@@ -85,7 +85,11 @@ final class PostWbReplyToChatRequest extends Wildberries
         {
             $this->logger->critical(
                 sprintf('wildberries-support: Ошибка %s отправки ответа на сообщение', $response->getStatusCode()),
-                [$content, $data, self::class.':'.__LINE__,],
+                [
+                    $content,
+                    $data,
+                    $this->getTokenIdentifier(),
+                    self::class.':'.__LINE__,],
             );
 
             return false;

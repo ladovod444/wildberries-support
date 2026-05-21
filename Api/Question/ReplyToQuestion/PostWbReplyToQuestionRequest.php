@@ -104,6 +104,7 @@ final class PostWbReplyToQuestionRequest extends Wildberries
                 sprintf('wildberries-support: Ошибка отправки ответа на вопрос'),
                 [
                     $content,
+                    $this->getTokenIdentifier(),
                     self::class.':'.__LINE__,
                 ]);
 

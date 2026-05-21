@@ -74,6 +74,7 @@ final class PatchWbCheckQuestionViewedRequest extends Wildberries
                 sprintf('wildberries-support: Ошибка отметки вопроса как прочитанного'),
                 [
                     $content,
+                    $this->getTokenIdentifier(),
                     self::class.':'.__LINE__,
                 ]);
 
