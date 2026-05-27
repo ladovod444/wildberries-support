@@ -128,7 +128,7 @@ final class GetWbQuestionsListRequest extends Wildberries
 
             $questions = $content['data']['questions'];
 
-            if(empty($questions) || count($questions) < self::LIMIT)
+            if(empty($questions))
             {
                 break;
             }
@@ -137,6 +137,12 @@ final class GetWbQuestionsListRequest extends Wildberries
             {
                 yield new WbQuestionMessageDTO($question);
             }
+
+            if(count($questions) < self::LIMIT)
+            {
+                break;
+            }
+
 
             $skip += self::LIMIT;
         }
