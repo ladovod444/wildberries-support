@@ -132,7 +132,7 @@ final class GetWbReviewsListRequest extends Wildberries
 
             $reviews = $content['data']['feedbacks'] ?? false;
 
-            if(empty($reviews) || count($reviews) < self::LIMIT)
+            if(empty($reviews))
             {
                 break;
             }
@@ -140,6 +140,11 @@ final class GetWbReviewsListRequest extends Wildberries
             foreach($reviews as $review)
             {
                 yield new WbReviewMessageDTO($review);
+            }
+
+            if(count($reviews) < self::LIMIT)
+            {
+                break;
             }
 
             $skip += self::LIMIT;
